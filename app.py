@@ -13,7 +13,7 @@ app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 host = 'localhost'
 port = 3306
 user = 'root'
-password = '123Aa'
+password = '*****'
 database = 'userdb'
 
 conn = pymysql.connect(
