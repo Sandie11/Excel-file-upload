@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data-Themed Website</title>
+    <style>
+            <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            font-family: Arial, sans-serif;
+            overflow: hidden;
+        }
+
+        .background-image {
+            background-size: cover;
+            background-position: center;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            margin: 0;
+        }
+
+        .content {
+            text-align: center;
+            max-width: 80%; /* Adjust the percentage to control the width of the content */
+            margin: auto;   /* Center the content horizontally */
+        }
+
+        h1 {
+            font-size: 2.5em;
+            margin-bottom: 20px; /* Adjust the margin as needed */
+        }
+
+        p {
+            font-size: 1.2em;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+    </style>
+    </style>
+</head>
+<body>
+    <div class="background-image" id="backgroundImage">
+        <div class="content">
+            <h1>Data-Themed Website</h1>
+            <p>Your data-themed content goes here.</p>
+            <form id="uploadForm" enctype="multipart/form-data">
+                <input type="file" name="file" accept=".xls, .xlsx" required>
+                <button type="button" onclick="uploadFile()">Upload Excel</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        fetch('https://source.unsplash.com/random')
+            .then(response => {
+                document.getElementById('backgroundImage').style.backgroundImage = `url(${response.url})`;
+            })
+            .catch(error => console.error('Error fetching image:', error));
+
+        function uploadFile() {
+            var form = document.getElementById('uploadForm');
+            var formData = new FormData(form);
+
+            fetch('/upload', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => response.json())
+            .then(data => console.log('Upload response:', data))
+            .catch(error => console.error('Error uploading file:', error));
+        }
+    </script>
+</body>
+</html>
