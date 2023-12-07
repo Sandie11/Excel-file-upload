@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customer Insights Dashboard</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        header {
+            text-align: center;
+            padding: 20px;
+            background-color: #333;
+            color: white;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2em;
+        }
+
+        section {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            flex-wrap: wrap;
+            padding: 20px;
+        }
+
+        .card {
+            background-color: #f0f0f0;
+            padding: 20px;
+            margin: 10px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            flex: 1;
+            max-width: 300px;
+        }
+
+        .card h2 {
+            font-size: 1.5em;
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        .card p {
+            font-size: 1.2em;
+            margin: 0;
+            color: #666;
+        }
+
+        footer {
+            text-align: center;
+            padding: 10px;
+            background-color: #333;
+            color: white;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Customer Insights Dashboard</h1>
+    </header>
+
+    <section>
+        <div class="card">
+            <h2>Total Customers</h2>
+            <p>{{ total_customers }}</p>
+        </div>
+
+        <div class="card">
+            <h2>Customers from USA</h2>
+            <p>{{ customers_from_usa }}</p>
+        </div>
+
+        <div class="card">
+            <h2>Highest Credit Limit</h2>
+            <p>${{ highest_credit_limit }}</p>
+        </div>
+
+        <div class="card">
+            <h2>Average Credit Limit</h2>
+            <p>${{ average_credit_limit }}</p>
+        </div>
+
+        <div class="card">
+            <h2>Customers with No Sales Rep</h2>
+            <p>{{ customers_no_sales_rep }}</p>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2023 Your Company</p>
+    </footer>
+
+</body>
+</html>
